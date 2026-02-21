@@ -4,21 +4,18 @@ export default function About() {
   const values = [
     {
       icon: Target,
-      title: "Precision",
-      description:
-        "We deliver accurate, detailed engineering solutiosn that meet the highest standards.",
+      title: "Technical Excellence",
+      description: "We deliver High-quality, accurate, and compliant solutions",
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description:
-        "Working closely with clients and stakeholders to achieve shared goals",
+      title: "Client Focus",
+      description: "Tailored solutions aligned with client objectives",
     },
     {
       icon: Award,
-      title: "Excellence",
-      description:
-        "Committed to exceptional quality in every project we undertake",
+      title: "Practicality",
+      description: "Real-world, constructible, and efficient outcomes",
     },
   ];
 
@@ -28,9 +25,7 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div className="flex flex-col text-gray-50 items-center justify-center h-full w-full mx-auto">
           <h1 className="text-5xl md:text-6xl mb-6">About TACT</h1>
-          <p className="text-2xl md:text-3xl mb-6">
-            Technical Advancement in Civil Technology
-          </p>
+          <p className="text-2xl md:text-3xl mb-6">How can we help you?</p>
         </div>
       </section>
       {/* Our Mission Section */}
@@ -38,15 +33,18 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl mb-6 text-center">Our Mission</h1>
           <p className="text-xl md:text-2xl mb-6 text-gray-700">
-            TACT is dedicated to providing innovative and sustainable civil
-            engineering solutions that shape the infrastructure of tomorrow.
-            With decades of combined experience, our team brings technical
-            expertise and creative problem-solving to every project.
+            TACT Consulting Services is a civil engineering and project
+            management consultancy delivering practical, compliant, and
+            cost-effective infrastructure design solutions. We support clients
+            through all stages of a project—from concept and detailed design to
+            construction support and delivery.
           </p>
           <p className="text-xl md:text-2xl text-gray-700">
-            We believe in building lasting relationships with our clients
-            through transparent communication, reliable service, and unwavering
-            commitment to project success.
+            Our services are underpinned by strong technical capability, local
+            industry knowledge, and a commitment to achieving efficient,
+            buildable outcomes. TACT Consulting Services works closely with
+            clients, councils, contractors, and stakeholders to ensure project
+            objectives are met safely, on time, and within budget.
           </p>
         </div>
       </section>

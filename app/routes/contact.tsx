@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, MapIcon, Phone } from "lucide-react";
 import ContactForm from "~/components/contactForm";
 
 export default function Contact() {
@@ -31,8 +31,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg mb-1">Phone</h3>
-                  <p className="text-gray-600">(555) 123-4567</p>
-                  <p className="text-gray-600">(555) 123-4568 (Fax)</p>
+                  <p className="text-gray-600">(61) 0499 276 230</p>
                 </div>
               </div>
 
@@ -42,8 +41,17 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg mb-1">Email</h3>
-                  <p className="text-gray-600">info@tactengineering.com</p>
-                  <p className="text-gray-600">projects@tactengineering.com</p>
+                  <p className="text-gray-600">Tulshi.tact@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                  <MapIcon className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg mb-1">Location</h3>
+                  <p className="text-gray-600">Pennant Hills, NSW, Australia</p>
                 </div>
               </div>
             </div>

@@ -5,52 +5,31 @@ import Project from "~/components/project";
 export default function Portfolio() {
   const projects = [
     {
-      title: "Metropolitan Bridge Expansion",
-      category: "Infrastructure",
-      description:
-        "Structural analysis and expansion design for a major metropolitan bridge system.",
-      image:
-        "https://images.unsplash.com/photo-1724118135465-edeef6acf221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkZ2UlMjBpbmZyYXN0cnVjdHVyZSUyMGVuZ2luZWVyaW5nfGVufDF8fHx8MTc3MTIyMzU4Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title: "Gunningbar Subdivision",
+      category: "Civil Design",
+      description: "Civil design and subdivision support",
+      image: "",
     },
     {
-      title: "Downtown Commercial Complex",
-      category: "Structural Engineering",
+      title: "Nevertire Truck Parking Facility",
+      category: "Heavy Vechicle Infrastructure",
       description:
-        "Complete structural engineering for a 30-story mixed-use development.",
-      image:
-        "https://images.unsplash.com/photo-1769721209842-e46c60e7fbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBidWlsZGluZyUyMGFyY2hpdGVjdHVyZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzEyNDE0MDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "Concept Design and project support for heavy vehicle infrastructure",
+      image: "",
     },
     {
-      title: "Regional Highway Network",
-      category: "Transportation",
-      description:
-        "Design and planning for 50 miles of new highway infrastructure.",
-      image:
-        "https://images.unsplash.com/photo-1552278596-1355a1421b72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaWdod2F5JTIwcm9hZCUyMGluZnJhc3RydWN0dXJlfGVufDF8fHx8MTc3MTIyMzU4Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      title:
+        "Industrial Access Road/Dubbo Street/Carinda Rd intersection Upgrade",
+      category: "Road Design",
+      description: "Road design, safety, and constructability input",
+      image: "",
     },
     {
-      title: "Urban Renewal Project",
-      category: "Planning",
+      title: "Oxley Hwy &amp; Marthaguy Road Intersection Upgrade",
+      category: "Road Design",
       description:
-        "Comprehensive site development and infrastructure planning for urban redevelopment.",
-      image:
-        "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMHBsYW5uaW5nJTIwY2l0eSUyMGRldmVsb3BtZW50fGVufDF8fHx8MTc3MTI5MDgzOXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      title: "Water Treatment Facility",
-      category: "Water Resources",
-      description:
-        "Design and implementation of state-of-the-art water treatment infrastructure.",
-      image:
-        "https://images.unsplash.com/photo-1655975719898-8f3432eed322?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaXZpbCUyMGVuZ2luZWVyaW5nJTIwY29uc3RydWN0aW9uJTIwc2l0ZXxlbnwxfHx8fDE3NzEyMjM1ODV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      title: "Sustainable Transit Hub",
-      category: "Transportation",
-      description:
-        "Multi-modal transportation center with focus on sustainable design.",
-      image:
-        "https://images.unsplash.com/photo-1724118135465-edeef6acf221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxicmlkZ2UlMjBpbmZyYXN0cnVjdHVyZSUyMGVuZ2luZWVyaW5nfGVufDF8fHx8MTc3MTIyMzU4Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "Detailed design for Intersection upgrade works and technical support",
+      image: "",
     },
   ];
 
@@ -69,7 +48,7 @@ export default function Portfolio() {
       {/* project card section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <div key={index}>
                 <Project

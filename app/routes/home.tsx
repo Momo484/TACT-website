@@ -5,23 +5,34 @@ import Service from "~/components/service";
 export default function Home() {
   const services = [
     {
-      title: "Urban Zoning Planning",
+      title: "Civil Engineering Design",
       description:
-        "Experienced insight into zoning law for all types of build environments",
+        "Concept, preliminary and detailed design for civil infrastructure projects",
     },
     {
-      title: "Intersection Design",
-      description: "Rapid and proffesional drafting at a competitive price",
+      title: "Subdivision Design and Delivery",
+      description:
+        "Residential, rural, and industrial subdivisions including approvals support",
+    },
+    {
+      title: "Project Management",
+      description:
+        "Planning, coordination, contractor liaison, and delivery oversight",
+    },
+    {
+      title: "Road and Transport Infrastructure",
+      description:
+        "Road design upgrades, intersections, access roads, and parking facilities",
+    },
+    {
+      title: "Technical Advisory Services",
+      description:
+        "Design reviews, constructability advice, and engineering support",
     },
     {
       title: "General consulting",
       description:
-        "Tap into a wealth of experience to guide your next design decisions",
-    },
-    {
-      title: "Transport networks",
-      description:
-        "Develop transport infrastructure to satify a growing populace",
+        "A custom experience based on your project scope and requirements",
     },
   ];
 
@@ -62,7 +73,7 @@ export default function Home() {
             Comprehensive civil engineering solutions for every project
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={index}>
               <Service

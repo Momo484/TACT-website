@@ -1,6 +1,7 @@
 import { Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
+import TACTLogo from "../images/TACTLogo.png";
 
 export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function Layout() {
           <div className="flex justify-between items-center h-16">
             {/* The logo */}
             <Link to="/" className="flex items-center">
-              <span className="text-2xl tracking-wider">TACT</span>
+              <img src={TACTLogo} alt="TACT logo" className="h-14 w-auto" />
             </Link>
             {/* Desktop navigation */}
             {/* hidden ensures its hidden unless the screen is bigger then md, for which case this is shown */}
@@ -130,15 +131,15 @@ export default function Layout() {
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>(555) 123-4567</span>
+                  <span>(61) 0499 276 230</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
-                  <span>info@tactengineering.com</span>
+                  <span>Tulshi.tact@gmail.com</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
-                  <span>123 Engineering Way, Suite 200</span>
+                  <span>Pennant Hills, NSW, Australia</span>
                 </li>
               </ul>
             </div>
@@ -146,8 +147,8 @@ export default function Layout() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>
-              &copy; {new Date().getFullYear()} TACT Engineering. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} TACT Consulting Services. All
+              rights reserved.
             </p>
           </div>
         </div>

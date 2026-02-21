@@ -41,6 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Outlet renders the matching child route of the parent route.
 export default function App() {
   return <Outlet />;
 }

@@ -1,0 +1,61 @@
+@import "tailwindcss"; /* Ensure this is at the top for v4 */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  /* ... keep your other variables ... */
+  --radius: 0.625rem;
+  --border: rgba(0, 0, 0, 0.1);
+  --ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  /* ... keep your dark variables ... */
+}
+
+@theme inline {
+  /* Use the v4 naming convention */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* Add these if you want to use var(--text-2xl) in your base layer */
+  --font-size-2xl: 1.5rem;
+  --font-size-xl: 1.25rem;
+  --font-size-lg: 1.125rem;
+  --font-size-base: 1rem;
+}
+
+@layer base {
+  * {
+    /* v4 prefers the full variable name if standard apply fails */
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring), transparent 50%);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  /* Fixed: Use standard Tailwind utility variables or raw values */
+  h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+  }
+  /* ... apply similar logic to h3, h4, etc. ... */
+}

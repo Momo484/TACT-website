@@ -58,7 +58,10 @@ export const handler = async (event: any) => {
     // 5. Return success response
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Email sent successfully", id: data.id }),
+      body: JSON.stringify({
+        message: "Email sent successfully",
+        id: data.data?.id,
+      }),
     };
   } catch (error: any) {
     console.error("Resend Error:", error);

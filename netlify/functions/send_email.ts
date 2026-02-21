@@ -30,9 +30,9 @@ export const handler = async (event: any) => {
     // 4. Send the email via Resend
     const data = await resend.emails.send({
       // Must be from your verified Resend subdomain
-      from: "TACT Consulting <contact@send.tactconsulting.com.au>",
+      from: "TACT Consulting <contact@mail.tactconsulting.com.au>",
       // The company's current Gmail address
-      to: ["your-company-email@gmail.com"],
+      to: ["tulshi.tact@gmail.com"],
       // Set Reply-To as the customer's email so replying is seamless
       replyTo: email,
       subject: `New Business Inquiry: ${name}`,

@@ -26,7 +26,7 @@ export default function Contact() {
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg shrink-0">
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
@@ -36,7 +36,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg shrink-0">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
@@ -46,7 +46,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
+                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-lg shrink-0">
                   <MapIcon className="h-6 w-6" />
                 </div>
                 <div>

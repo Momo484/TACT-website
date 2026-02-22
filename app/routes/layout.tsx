@@ -31,62 +31,70 @@ export default function Layout() {
       {/* this is going to be the header part */}
       {/*White background with a very smaller bottom border, 
       stuck to the top above all else */}
-      <header className="bg-white border-b sticky top-0 z-50">
-        {/* <nav> is just semantics, used to tell website that important 
-            stored in the next div */}
-        {/* sets max wide, horizontal margins and padding */}
+
+      <header className="bg-white border-b sticky top-0 z-40">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* this is for putting logo on far left and links on far right */}
           <div className="flex justify-between items-center h-16">
-            {/* The logo */}
+            {/* Logo */}
             <Link to="/" className="flex items-center">
               <img src={TACTLogo} alt="TACT logo" className="h-14 w-auto" />
             </Link>
-            {/* Desktop navigation */}
-            {/* hidden ensures its hidden unless the screen is bigger then md, for which case this is shown */}
+
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navigation.map((item) => (
                 <Link
-                  to={item.href}
                   key={item.name}
-                  className={`transition-colors ${isActive(item.href) ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}`}
+                  to={item.href}
+                  className={`transition-colors ${
+                    isActive(item.href)
+                      ? "text-blue-600"
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              {/* mobile navigation */}
-              {/* md:hidden means this is hidden for any screen bigger then md */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2"
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
-
-              {mobileMenuOpen && (
-                <div className="md:hidden py-4 border-t">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`block py-2 transition-colors ${
-                        isActive(item.href)
-                          ? "text-blue-600"
-                          : "text-gray-700 hover:text-blue-600"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              type="button"
+              onClick={() => {
+                console.log("rbo");
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
+              // Added relative, z-50, and cursor-pointer to guarantee it stays clickable and on top
+              className="md:hidden p-2 relative z-50 cursor-pointer"
+            >
+              {mobileMenuOpen ? (
+                // Added pointer-events-none so the SVG doesn't steal the click from the button
+                <X className="h-6 w-6 pointer-events-none" />
+              ) : (
+                <Menu className="h-6 w-6 pointer-events-none" />
+              )}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="md:hidden py-4 border-t">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block py-2 transition-colors ${
+                    isActive(item.href)
+                      ? "text-blue-600"
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </nav>
       </header>
 

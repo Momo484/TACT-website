@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -18,14 +19,16 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
-      const response = await fetch("/.netlify/functions/send-email", {
+      const response = await fetch("/.netlify/functions/send_email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name, // Use actual form data instead of hardcoded strings
+          name: formData.name,
           email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
           message: formData.message,
         }),
       });
@@ -39,7 +42,14 @@ export default function ContactForm() {
 
       // Success path
       setStatus("success");
-      alert("Thank you for your message! We'll get back to you soon.");
+      toast.success("Thank you! We'll get back to you soon.", {
+        duration: 5000, // Stays on screen for 5 seconds
+        style: {
+          border: "1px solid #22c55e",
+          padding: "16px",
+          color: "#166534",
+        },
+      });
 
       // Only clear form if the email was sent successfully
       setFormData({
@@ -53,8 +63,11 @@ export default function ContactForm() {
       // This catches network crashes or the Error we threw above
       console.error("Submission Error:", error);
       setStatus("error");
-      alert(
-        "Oops! Something went wrong. Please try again or email us directly at company@gmail.com.",
+      toast.error(
+        "Oops! Something went wrong. Please try again or reach out at tulshi.tact@gmail.com",
+        {
+          duration: 5000,
+        },
       );
     } finally {
       // Reset status after a delay if you want the button to become clickable again
@@ -73,6 +86,7 @@ export default function ContactForm() {
 
   return (
     <div className="max-w-2xl mx-auto rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 bg-white border border-gray-100">
+      <Toaster position="bottom-center" />
       <h2 className="text-3xl font-semibold mb-2 text-gray-800">
         Get in Touch
       </h2>
@@ -81,13 +95,6 @@ export default function ContactForm() {
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        {status === "success" && (
-          <div className="p-4 text-green-800 bg-green-50 rounded-lg text-sm border border-green-200">
-            ✅ Thank you! Your message has been received. We'll be in touch
-            shortly.
-          </div>
-        )}
-
         {/* Row 1: Name and Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>

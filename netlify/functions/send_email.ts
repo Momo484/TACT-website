@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-// Initialize Resend with your API Key (Securely stored in Netlify environment variables)
+// Initialize Resend with your API Key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const handler = async (event: any) => {
@@ -13,10 +13,8 @@ export const handler = async (event: any) => {
   }
 
   try {
-    // 2. Parse the form data from the request body
     const { name, email, phone, company, message } = JSON.parse(event.body);
 
-    // 3. Simple server-side validation
     if (!name || !email || !message) {
       return {
         statusCode: 400,
@@ -27,13 +25,10 @@ export const handler = async (event: any) => {
       };
     }
 
-    // 4. Send the email via Resend
-    const data = await resend.emails.send({
-      // Must be from your verified Resend subdomain
-      from: "TACT Consulting <contact@mail.tactconsulting.com.au>",
-      // The company's current Gmail address
+    // 1. Prepare the email to the Business (You)
+    const adminEmailPromise = resend.emails.send({
+      from: "TACT Consulting <contact@contact.tactconsulting.com.au>",
       to: ["tulshi.tact@gmail.com"],
-      // Set Reply-To as the customer's email so replying is seamless
       replyTo: email,
       subject: `New Business Inquiry: ${name}`,
       html: `
@@ -48,23 +43,66 @@ export const handler = async (event: any) => {
             <p><strong>Message:</strong></p>
             <p style="white-space: pre-wrap;">${message}</p>
           </div>
-          <footer style="margin-top: 20px; font-size: 12px; color: #777;">
-            Sent from the TACT Consulting website contact form.
-          </footer>
         </div>
       `,
     });
 
-    // 5. Return success response
+    // 2. Prepare the confirmation email to the Client
+    const clientEmailPromise = resend.emails.send({
+      from: "TACT Consulting <contact@contact.tactconsulting.com.au>",
+      to: [email], // Using the email they typed into the form
+      subject: "We received your inquiry - TACT Consulting",
+      html: `
+        <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px;">
+          <h2 style="color: #2563eb;">Thank you for reaching out, ${name}!</h2>
+          <p>This is an automated message to confirm that we have successfully received your inquiry.</p>
+          <p>Our team will review your project details and get back to you shortly to discuss how our civil engineering expertise can support your needs.</p>
+          
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
+          
+          <p style="font-size: 14px; color: #555;"><strong>For your records, here is a copy of your message:</strong></p>
+          <div style="margin-top: 10px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #2563eb; border-radius: 4px;">
+            <p style="white-space: pre-wrap; font-style: italic; color: #444;">${message}</p>
+          </div>
+          
+          <p style="margin-top: 30px; color: #555;">
+            Best regards,<br>
+            <strong>The TACT Consulting Team</strong>
+          </p>
+        </div>
+      `,
+    });
+
+    // 3. Fire both emails simultaneously!
+    const [adminResponse, clientResponse] = await Promise.all([
+      adminEmailPromise,
+      clientEmailPromise,
+    ]);
+
+    // Check if EITHER email failed to send
+    if (adminResponse.error || clientResponse.error) {
+      console.error(
+        "Resend API Error:",
+        adminResponse.error || clientResponse.error,
+      );
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: adminResponse.error?.message || clientResponse.error?.message,
+        }),
+      };
+    }
+
+    // 4. Return success to the frontend
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: "Email sent successfully",
-        id: data.data?.id,
+        message: "Emails sent successfully",
       }),
     };
   } catch (error: any) {
-    console.error("Resend Error:", error);
+    // This now strictly catches network crashes or JSON parsing failures
+    console.error("Server Error:", error);
 
     return {
       statusCode: 500,

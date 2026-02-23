@@ -22,7 +22,7 @@
 - **Serverless Contact Pipeline:** Securely processes client inquiries using Netlify Functions without exposing API credentials to the client.
 - **Automated Confirmations:** Utilizes asynchronous processing (`Promise.all`) to instantly notify admins of new leads while simultaneously delivering a branded confirmation receipt to the client.
 - **Authenticated Email Delivery:** Fully configured production DNS records (SPF, DKIM, DMARC) to authenticate subdomains, ensuring high deliverability and bypassing automated spam filters.
-- **Dynamic Client-Side Routing:** Built on modern React Router architecture, managing Server-Side Rendering (SSR) and client-side hydration for lightning-fast, seamless page transitions.
+- **Dynamic Client-Side Routing:** Built on modern React Router architecture, managing Server-Side Rendering (SSR) and client-side hydration.
 - **Polished UI/UX:** Fully mobile-responsive layout featuring non-blocking toast notifications for highly accessible user feedback.
 
 ---

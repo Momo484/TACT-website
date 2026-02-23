@@ -5,10 +5,22 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  type MetaFunction,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "TACT Consulting" },
+    {
+      name: "description",
+      content:
+        "Professional civil engineering consulting services based in NSW, Australia.",
+    },
+  ];
+};
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

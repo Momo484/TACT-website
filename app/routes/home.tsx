@@ -48,17 +48,17 @@ export default function Home() {
             TACT - Your partner in civil engineering
           </p>
           {/* Buttons! */}
-          <div className="flex flex-row">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/portfolio"
-              className="inline-flex bg-blue-600 hover:bg-blue-900 text-white px-8 py-3 rounded transition-colors mx-5"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded transition-colors"
             >
               View Our Work
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
               to="/contact"
-              className="bg-white hover:bg-gray-400 text-black px-8 py-3 rounded transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded transition-colors "
             >
               Get In Touch
             </Link>

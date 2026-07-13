@@ -2,34 +2,39 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import Project from "~/components/project";
 
+import Gunningbar from "../images/Gunningbar.png"
+import Nevertire from "../images/Nevertire.png"
+import Industrial from "../images/Industrial.png"
+import Oxley from "../images/Oxley.png"
+
 export default function Portfolio() {
   const projects = [
     {
       title: "Gunningbar Subdivision",
       category: "Civil Design",
       description: "Civil design and subdivision support",
-      image: "",
+      image: Gunningbar,
     },
     {
       title: "Nevertire Truck Parking Facility",
       category: "Heavy Vechicle Infrastructure",
       description:
         "Concept Design and project support for heavy vehicle infrastructure",
-      image: "",
+      image: Nevertire,
     },
     {
       title:
         "Industrial Access Road/Dubbo Street/Carinda Rd intersection Upgrade",
       category: "Road Design",
       description: "Road design, safety, and constructability input",
-      image: "",
+      image: Industrial,
     },
     {
-      title: "Oxley Hwy &amp; Marthaguy Road Intersection Upgrade",
+      title: "Oxley Hwy & Marthaguy Road Intersection Upgrade",
       category: "Road Design",
       description:
         "Detailed design for Intersection upgrade works and technical support",
-      image: "",
+      image: Oxley,
     },
   ];
 
